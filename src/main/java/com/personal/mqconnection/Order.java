@@ -1,5 +1,6 @@
 package com.personal.mqconnection;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Date;
  * @author 刘冬
  *
  */
-public class Order {
+public class Order implements Serializable {
 
     public String id;
 
