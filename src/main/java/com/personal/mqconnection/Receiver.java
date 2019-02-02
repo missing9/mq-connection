@@ -19,14 +19,13 @@ public class Receiver {
 
     @RabbitListener(queues = "save")
     @RabbitHandler
-    public String save(String orderStr) {
+    public void save(String orderStr) {
         Order order = JSONObject.parseObject(orderStr, Order.class);
         if (StringUtils.isNullOrEmpty(order.id)) {
-            order.id = orderDao.insert(order);
+            orderDao.insert(order);
         } else {
             orderDao.update(order);
         }
-        return order.id;
     }
 
     @RabbitListener(queues = "findAll")

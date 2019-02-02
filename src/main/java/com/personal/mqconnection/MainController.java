@@ -32,7 +32,7 @@ public class MainController {
     }
 
     @GetMapping("/get")
-    public @ResponseBody Object get(String id) {
+    public Order get(String id) {
         return orderDao.get(id);
     }
 
